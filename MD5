@@ -1,0 +1,13 @@
+d3614fb04e5f486b3cbceea82cb50f1e *DESCRIPTION
+dd5b159ddc411391e8231b9a931c4816 *NAMESPACE
+b7b52a0c77120e14a3563746bb51de39 *R/datach.R
+8cc7bd39551d4b9a088b428f12e32892 *R/pm3.R
+c8ed63e34c51e3ccb7cc883227d6bec6 *R/pm3datalist.R
+bac1fc570269491599694b2f59fc563b *R/pm3fit.R
+456d7170b005384df57b095d0a3c673b *R/prematurity.R
+aa2e21fe1be0564b53ca77e236770919 *data/prematurity.rda
+89d34f2e6a927101f07a743e044a958d *man/datach.Rd
+ac81cbadde05d466f4ccabaad108ee69 *man/pm3.Rd
+696edbb1fc277b2089fde70185fbf872 *man/pm3datalist.Rd
+ff6270d62816811d9ca1689c6cb9e8ca *man/pm3fit.Rd
+4a30cdd4090b22d83999255eb1ecfc69 *man/prematurity.Rd
