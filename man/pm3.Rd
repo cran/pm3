@@ -10,9 +10,9 @@
 
 \item{y}{Enter the outcome variable for your study.}
 
-\item{covs}{Covariates. Usually the other fitted variables of the model.}
+\item{covs}{Covariates. Usually the other fitted variables of the model.This is also usually the baseline variable you need to match.}
 
-\item{factor}{Define the categorical variables in your data. You can leave this blank, but fill in a minimum of 2 if you do.}
+\item{factor}{Define the categorical variables in your data.}
 
 \item{CALIP}{The number used to match. Usually you don't need to change it. The default is 0.5.}
 }
@@ -30,7 +30,8 @@ You can use this program for 3 sets of categorical data for propensity score mat
 \examples{
 bc<-prematurity
 #####Generate data lists and extract data
-g<-pm3(data=bc,x="race",y="low",covs=c("age","lwt","ptl"),factor=c("ui","low","smoke"))
+g<-pm3(data=bc,x="race",y="low",covs=c("age","lwt","ptl"),
+factor=c("ui","low","smoke"))
 mbc<-g[["mbc"]]
 ####Compare before and after matching
 library(tableone)

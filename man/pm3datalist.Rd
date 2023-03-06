@@ -15,7 +15,7 @@ pm3datalist(data, x, y, covs, factor = NULL)
 
 \item{covs}{Enter the relevant covariates.}
 
-\item{factor}{Define categorical variables. You can leave this blank, but if you do, fill in at least 2.}
+\item{factor}{Define categorical variables.}
 }
 \value{
 A data.

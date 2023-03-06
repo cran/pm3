@@ -10,8 +10,8 @@
 #'@param data need a dataframe
 #'@param x Enter the 3 categorical variables to be matched.
 #'@param y Enter the outcome variable for your study.
-#'@param covs Covariates. Usually the other fitted variables of the model.
-#'@param factor Define the categorical variables in your data. You can leave this blank, but fill in a minimum of 2 if you do.
+#'@param covs Covariates. Usually the other fitted variables of the model.This is also usually the baseline variable you need to match.
+#'@param factor Define the categorical variables in your data.
 #'@param CALIP The number used to match. Usually you don't need to change it. The default is 0.5.
 #'@importFrom "tableone" "CreateTableOne"
 #'
@@ -27,7 +27,8 @@
 #'@examples
 #'bc<-prematurity
 #'#####Generate data lists and extract data
-#'g<-pm3(data=bc,x="race",y="low",covs=c("age","lwt","ptl"),factor=c("ui","low","smoke"))
+#'g<-pm3(data=bc,x="race",y="low",covs=c("age","lwt","ptl"),
+#'factor=c("ui","low","smoke"))
 #'mbc<-g[["mbc"]]
 #'####Compare before and after matching
 #'library(tableone)

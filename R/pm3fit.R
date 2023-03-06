@@ -5,7 +5,7 @@
 #'@param x The 3 categorical variables that you make matches for.
 #'@param y Your result variable.
 #'@param covs Enter the relevant covariates.
-#'@param factor Define categorical variables. You can leave this blank, but if you do, fill in at least 2.
+#'@param factor Define categorical variables.
 #'@importFrom "stats" "predict"
 #'@return A list with data.
 #'
