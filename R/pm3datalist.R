@@ -12,10 +12,10 @@
 pm3datalist<-function(data,x,y,covs,factor=NULL){
   data<-as.data.frame(data)
   data<-na.omit(data)
-  fac<-factor
+  if (!missing(factor)) {fac<-factor}
   data[,x]<-as.numeric(as.factor(data[,x]))
-  a<-unique(data[,x]);b<-c(1,2,3)
-  if (identical(a,b) !=TRUE)  {stop("X must be 3 categories.")}
+  a<-unique(data[,x]);a<-sort(a);b<-c(1,2,3)
+  if (identical(a,b) !=TRUE)  {stop("X must be 3 categories.If x is a number, it must be 1,2,3.")}
   if (!missing(factor)) {
     for(i in factor){
       data[,i] <- as.factor(data[,i])

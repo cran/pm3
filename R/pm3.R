@@ -8,7 +8,7 @@
 #'
 #'
 #'@param data need a dataframe
-#'@param x Enter the 3 categorical variables to be matched.
+#'@param x Enter the 3 categorical variables to be matched.If x is a number, it must be of type 1,2,3.
 #'@param y Enter the outcome variable for your study.
 #'@param covs Covariates. Usually the other fitted variables of the model.This is also usually the baseline variable you need to match.
 #'@param factor Define the categorical variables in your data.
@@ -103,6 +103,7 @@ pm3<-function(data,x,y,covs,factor,CALIP) {
     for(j in 1 : rowsNum_1){
       absDist12<-abs(newDF_1$ps12[j]-mtchDf_2$ps12[i]) # ʹ?á?ps ac ?????? a??c ?????????��־???
       absDist13<-abs(newDF_1$ps13[j]-mtchDf_3$ps13[i]) # ʹ?á?ps bc ?????? b??c ?????????��־???
+      if(is.na(absDist12) |is.na(absDist13)) next
       deno<-abs(newDF_1$ps12[j])+abs(mtchDf_2$ps12[i]) + abs(newDF_1$ps13[j]) + abs(mtchDf_3$ps13[i])
       relDist<-(absDist12 + absDist13)/deno # ?????????��־???
       if(relDist<-CALIP){

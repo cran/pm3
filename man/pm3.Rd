@@ -6,7 +6,7 @@
 \arguments{
 \item{data}{need a dataframe}
 
-\item{x}{Enter the 3 categorical variables to be matched.}
+\item{x}{Enter the 3 categorical variables to be matched.If x is a number, it must be of type 1,2,3.}
 
 \item{y}{Enter the outcome variable for your study.}
 
