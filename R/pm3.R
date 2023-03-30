@@ -106,7 +106,7 @@ pm3<-function(data,x,y,covs,factor,CALIP) {
       if(is.na(absDist12) |is.na(absDist13)) next
       deno<-abs(newDF_1$ps12[j])+abs(mtchDf_2$ps12[i]) + abs(newDF_1$ps13[j]) + abs(mtchDf_3$ps13[i])
       relDist<-(absDist12 + absDist13)/deno # ?????????��־???
-      if(relDist<-CALIP){
+      if(relDist<=CALIP){
         if((absDist12 + absDist13)<mindis){
           mindis<-absDist12 + absDist13
           jGet<-j
