@@ -50,12 +50,14 @@ utils::globalVariables(c('pm3datalist',
 
 
 
-pm3<-function(data,x,y,covs,factor,CALIP) {
+pm3<-function(data,x,y,covs,factor=NULL,CALIP) {
   if (missing(data)) {stop("data is miss.")}
   if (missing(x)) {stop("x is miss.")}
   if (missing(y)) {stop("y is miss.")}
   if (missing(covs)) {stop("covs is miss.")}
-  data<-pm3datalist(data=data,x=x,y=y,factor=factor)
+  psid<-seq(1,dim(data)[1]);
+  ysdata<-data;ysdata$psid<-psid  #ID
+  data<-pm3datalist(data=data,x=x,y=y,covs=covs,factor=factor)
   dat1<-pm3fit(data=data,x=x,y=y,covs=covs)
   newDF_1<-dat1[["newDF_1"]]
   newDF_2<-dat1[["newDF_2"]]
@@ -103,10 +105,9 @@ pm3<-function(data,x,y,covs,factor,CALIP) {
     for(j in 1 : rowsNum_1){
       absDist12<-abs(newDF_1$ps12[j]-mtchDf_2$ps12[i]) # ʹ?á?ps ac ?????? a??c ?????????��־???
       absDist13<-abs(newDF_1$ps13[j]-mtchDf_3$ps13[i]) # ʹ?á?ps bc ?????? b??c ?????????��־???
-      if(is.na(absDist12) |is.na(absDist13)) next
       deno<-abs(newDF_1$ps12[j])+abs(mtchDf_2$ps12[i]) + abs(newDF_1$ps13[j]) + abs(mtchDf_3$ps13[i])
       relDist<-(absDist12 + absDist13)/deno # ?????????��־???
-      if(relDist<=CALIP){
+      if(relDist<-CALIP){
         if((absDist12 + absDist13)<mindis){
           mindis<-absDist12 + absDist13
           jGet<-j
@@ -125,6 +126,10 @@ pm3<-function(data,x,y,covs,factor,CALIP) {
     }
   }
   mbc<-rbind(fMtchDf_1,fMtchDf_2,fMtchDf_3)
+  mbc<-ysdata[match(mbc$psid,ysdata$psid),]
+  fMtchDf_1<-ysdata[match(fMtchDf_1$psid,ysdata$psid),]
+  fMtchDf_2<-ysdata[match(fMtchDf_2$psid,ysdata$psid),]
+  fMtchDf_3<-ysdata[match(fMtchDf_3$psid,ysdata$psid),]
   out<-list(mbc=mbc,fMtchDf_1=fMtchDf_1,fMtchDf_2=fMtchDf_2,fMtchDf_3=fMtchDf_3)
   out
 }
