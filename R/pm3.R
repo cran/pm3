@@ -103,11 +103,12 @@ pm3<-function(data,x,y,covs,factor=NULL,CALIP) {
     mindis<-999.99
     rowsNum_1<-dim(newDF_1)[1]
     for(j in 1 : rowsNum_1){
-      absDist12<-abs(newDF_1$ps12[j]-mtchDf_2$ps12[i]) # ʹ?á?ps ac ?????? a??c ?????????��־???
-      absDist13<-abs(newDF_1$ps13[j]-mtchDf_3$ps13[i]) # ʹ?á?ps bc ?????? b??c ?????????��־???
+      absDist12<-abs(newDF_1$ps12[j]-mtchDf_2$ps12[i])
+      absDist13<-abs(newDF_1$ps13[j]-mtchDf_3$ps13[i])
+      if(is.na(absDist12) |is.na(absDist13)) next
       deno<-abs(newDF_1$ps12[j])+abs(mtchDf_2$ps12[i]) + abs(newDF_1$ps13[j]) + abs(mtchDf_3$ps13[i])
-      relDist<-(absDist12 + absDist13)/deno # ?????????��־???
-      if(relDist<-CALIP){
+      relDist<-(absDist12 + absDist13)/deno
+      if(relDist<=CALIP){
         if((absDist12 + absDist13)<mindis){
           mindis<-absDist12 + absDist13
           jGet<-j
