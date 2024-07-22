@@ -1,7 +1,7 @@
 Package: pm3
 Type: Package
 Title: Propensity Score Matching for Unordered 3-Group Data
-Version: 0.1.9
+Version: 0.2.0
 Authors@R: person("Qiang", "LIU", email = "dege857@163.com",
                   role = c("aut", "cre"))
 Maintainer: Qiang LIU <dege857@163.com>
@@ -16,7 +16,7 @@ LazyData: true
 RoxygenNote: 7.2.1
 Imports: tableone
 NeedsCompilation: no
-Packaged: 2023-06-17 10:27:13 UTC; Administrator
+Packaged: 2024-07-22 09:03:27 UTC; liu
 Author: Qiang LIU [aut, cre]
 Repository: CRAN
-Date/Publication: 2023-06-17 10:40:02 UTC
+Date/Publication: 2024-07-22 09:20:02 UTC

@@ -10,7 +10,7 @@ datach<-function(data,x){
   B<-subset(data,data[,x]==2)##??????????
   C<-subset(data,data[,x]==3) ##?м???????
   dtN <- c("S", "M", "L")
-  Rk <- rank(c(dim(A)[1], dim(B)[1], dim(C)[1]))
+  Rk <- rank(c(dim(A)[1], dim(B)[1], dim(C)[1]),ties.method="last")
   #????list
   filelist <- list(A = A, B = B, C = C)
   newlist <- list(L = data.frame(NULL),
